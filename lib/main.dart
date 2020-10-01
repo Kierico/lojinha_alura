@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lojinha_alura/paginas/carrinho.dart';
 import 'package:lojinha_alura/paginas/detalhes.dart';
 import 'package:lojinha_alura/widgets/appbar.dart';
+import 'package:lojinha_alura/widgets/grid_produtos.dart';
 
 void main() {
   runApp(MyApp());
@@ -85,14 +86,8 @@ class Inicio extends StatelessWidget {
         titulo: 'Lojinha Alura',
         ehPaginaCarrinho: false,
       ),
-      body: FlatButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Detalhes()),
-          );
-        },
-        child: Text('Vamos para a próxima página'),
+      body: GridProdutos(
+        moveis: moveis,
       ),
     );
   }
