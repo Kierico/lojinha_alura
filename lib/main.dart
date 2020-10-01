@@ -83,6 +83,7 @@ class Inicio extends StatelessWidget {
       backgroundColor: Colors.grey[200],
       appBar: AppBarCustomizada(
         titulo: 'Lojinha Alura',
+        ehPaginaCarrinho: false,
       ),
       body: FlatButton(
         onPressed: () {

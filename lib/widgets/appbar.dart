@@ -3,7 +3,9 @@ import 'package:lojinha_alura/widgets/botao_carrinho.dart';
 
 class AppBarCustomizada extends StatelessWidget with PreferredSizeWidget {
   final String titulo;
-  AppBarCustomizada({this.titulo});
+  final bool ehPaginaCarrinho;
+
+  AppBarCustomizada({this.titulo, this.ehPaginaCarrinho});
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +15,18 @@ class AppBarCustomizada extends StatelessWidget with PreferredSizeWidget {
       elevation: 0.0,
       backgroundColor: Colors.transparent,
       centerTitle: true,
-      actions: [BotaoCarrinho()],
+      iconTheme: IconThemeData(color: Colors.black),
+      actions: [
+        _mudarPaginaCarrinho(ehPaginaCarrinho),
+      ],
     );
   }
 
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
+
+  Widget _mudarPaginaCarrinho(bool ehPaginaCarrinho) {
+    if (ehPaginaCarrinho) return Container();
+    return BotaoCarrinho();
+  }
 }
