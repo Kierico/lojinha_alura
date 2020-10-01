@@ -82,12 +82,33 @@ class Inicio extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
-      appBar: AppBarCustomizada(
-        titulo: 'Lojinha Alura',
-        ehPaginaCarrinho: false,
-      ),
-      body: GridProdutos(
-        moveis: moveis,
+      appBar:
+          AppBarCustomizada(titulo: 'Lojinha Alura', ehPaginaCarrinho: false),
+      body: Column(
+        children: [
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Container(
+                  margin:
+                      EdgeInsets.only(left: 30, right: 20, top: 10, bottom: 10),
+                  child: Divider(),
+                ),
+              ),
+              Text('Produtos'),
+              Expanded(
+                  child: Container(
+                      margin: EdgeInsets.only(
+                          left: 20, right: 30, top: 10, bottom: 10),
+                      child: Divider()))
+            ],
+          ),
+          Flexible(
+            child: GridProdutos(
+              moveis: moveis,
+            ),
+          )
+        ],
       ),
     );
   }
