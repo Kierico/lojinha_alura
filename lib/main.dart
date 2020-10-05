@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lojinha_alura/modelos/item_carrinho.dart';
 import 'package:lojinha_alura/paginas/carrinho.dart';
 import 'package:lojinha_alura/paleta_cores.dart';
 import 'package:lojinha_alura/widgets/appbar.dart';
@@ -38,6 +39,8 @@ class MyApp extends StatelessWidget {
 }
 
 class Inicio extends StatelessWidget {
+  static List<ItemCarrinho> itensCarrinho = List();
+
   final List moveis = [
     {
       "titulo": "Mesa",
