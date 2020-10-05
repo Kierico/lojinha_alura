@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:lojinha_alura/main.dart';
 import 'package:lojinha_alura/modelos/item_carrinho.dart';
 import 'package:lojinha_alura/modelos/movel.dart';
@@ -14,6 +15,8 @@ class ListaCarrinho extends StatefulWidget {
 
 class _ListaCarrinhoState extends State<ListaCarrinho> {
   final List<ItemCarrinho> carrinho = Inicio.itensCarrinho;
+  final formatacaoReais = NumberFormat.currency(locale: 'pt_BR', symbol: 'R\$');
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -27,9 +30,13 @@ class _ListaCarrinhoState extends State<ListaCarrinho> {
           child: Card(
             child: Row(
               children: [
-                Image(
-                  image: AssetImage('utilidades/assets/imagens/${movel.foto}'),
-                  height: 92,
+                Expanded(
+                  child: Image(
+                    image:
+                        AssetImage('utilidades/assets/imagens/${movel.foto}'),
+                    height: 92,
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 Expanded(
                   child: Container(
@@ -39,11 +46,12 @@ class _ListaCarrinhoState extends State<ListaCarrinho> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(movel.titulo),
+                        Text(movel.titulo,
+                            style: Theme.of(context).textTheme.headline3),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('${movel.preco}'),
+                            Text(formatacaoReais.format(movel.preco)),
                             Row(
                               children: [
                                 GestureDetector(
