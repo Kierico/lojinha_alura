@@ -4,8 +4,9 @@ import 'package:lojinha_alura/widgets/elemento_grid_produtos.dart';
 
 class GridProdutos extends StatelessWidget {
   final moveis;
+  final Function atualiza;
 
-  GridProdutos({this.moveis});
+  GridProdutos({this.moveis, this.atualiza});
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +19,7 @@ class GridProdutos extends StatelessWidget {
 
         return ElementoGridProdutos(
           movel: movel,
+          atualiza: atualiza,
         );
       },
     );

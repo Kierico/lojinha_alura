@@ -52,4 +52,18 @@ class _CarrinhoState extends State<Carrinho> {
 
     return 0;
   }
+
+  Widget _construirTela() {
+    if (Inicio.itensCarrinho.isNotEmpty) {
+      return ListaCarrinho(
+        atualiza: atualiza,
+      );
+    } else {
+      return Container(
+        alignment: Alignment.center,
+        height: double.infinity,
+        child: Text('Nenhum item no carrinho'),
+      );
+    }
+  }
 }
