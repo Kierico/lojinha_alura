@@ -51,7 +51,7 @@ class _ListaCarrinhoState extends State<ListaCarrinho> {
                                 ),
                                 Text('${item.quantidade}'),
                                 GestureDetector(
-                                  onTap: () => _aumentarQuantidade(item),
+                                  onTap: () => _diminuirQuantidade(item),
                                   child: Container(
                                     margin: EdgeInsets.all(8),
                                     child: Icon(Icons.remove, size: 14),
@@ -73,11 +73,11 @@ class _ListaCarrinhoState extends State<ListaCarrinho> {
     );
   }
 
-  _aumentarQuantidade(ItemCarrinho item) {
+  void _aumentarQuantidade(ItemCarrinho item) {
     item.quantidade++;
   }
 
-  _diminuirQuantidade(ItemCarrinho item) {
+  void _diminuirQuantidade(ItemCarrinho item) {
     item.quantidade--;
   }
 }
