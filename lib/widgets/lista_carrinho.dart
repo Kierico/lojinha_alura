@@ -4,6 +4,10 @@ import 'package:lojinha_alura/modelos/item_carrinho.dart';
 import 'package:lojinha_alura/modelos/movel.dart';
 
 class ListaCarrinho extends StatefulWidget {
+  final Function atualiza;
+
+  ListaCarrinho({this.atualiza});
+
   @override
   _ListaCarrinhoState createState() => _ListaCarrinhoState();
 }
@@ -74,10 +78,27 @@ class _ListaCarrinhoState extends State<ListaCarrinho> {
   }
 
   void _aumentarQuantidade(ItemCarrinho item) {
-    item.quantidade++;
+    setState(() {
+      item.quantidade++;
+      widget.atualiza();
+    });
   }
 
   void _diminuirQuantidade(ItemCarrinho item) {
-    item.quantidade--;
+    if (item.quantidade > 1) {
+      setState(() {
+        item.quantidade--;
+        widget.atualiza();
+      });
+    } else {
+      _removerMovel(item);
+    }
+  }
+
+  void _removerMovel(ItemCarrinho item) {
+    setState(() {
+      Inicio.itensCarrinho.remove(item);
+      widget.atualiza();
+    });
   }
 }
