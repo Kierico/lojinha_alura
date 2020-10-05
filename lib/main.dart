@@ -19,6 +19,18 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: PaletaCores().lilas,
+          textTheme: TextTheme(
+            headline1: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Alata',
+                color: Colors.black),
+            headline2: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Alata',
+                color: Colors.white),
+          ),
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: Inicio());

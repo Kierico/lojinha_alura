@@ -16,7 +16,9 @@ class CardDetalhes extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          TextoCardDetalhes(texto: movel.titulo),
+          TextoCardDetalhes(
+              texto: movel.titulo,
+              estilo: Theme.of(context).textTheme.headline1),
           TextoCardDetalhes(texto: movel.descricao),
           Container(
             margin: EdgeInsets.only(left: 16, right: 16, bottom: 16, top: 8),
@@ -25,6 +27,7 @@ class CardDetalhes extends StatelessWidget {
               children: <Widget>[
                 Text(
                   formatacaoReais.format(movel.preco),
+                  style: Theme.of(context).textTheme.headline1,
                 ),
                 FlatButton(
                   color: Theme.of(context).primaryColor,
