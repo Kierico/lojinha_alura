@@ -9,8 +9,9 @@ class CardDetalhes extends StatelessWidget {
   final formatacaoReais = NumberFormat.currency(locale: 'pt_BR', symbol: 'R\$');
 
   final Movel movel;
+  final Function atualizaPagina;
 
-  CardDetalhes({this.movel});
+  CardDetalhes({this.movel, this.atualizaPagina});
 
   @override
   Widget build(BuildContext context) {
@@ -50,5 +51,6 @@ class CardDetalhes extends StatelessWidget {
 
   void _adicionarItemCarrinho(ItemCarrinho item) {
     Inicio.itensCarrinho.add(item);
+    atualizaPagina();
   }
 }

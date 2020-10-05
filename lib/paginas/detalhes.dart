@@ -3,17 +3,26 @@ import 'package:lojinha_alura/modelos/movel.dart';
 import 'package:lojinha_alura/widgets/appbar.dart';
 import 'package:lojinha_alura/widgets/card_detalhes.dart';
 
-class Detalhes extends StatelessWidget {
+class Detalhes extends StatefulWidget {
   final Movel movel;
 
   Detalhes({this.movel});
+
+  _DetalhesState createState() => _DetalhesState();
+}
+
+class _DetalhesState extends State<Detalhes> {
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('utilidades/assets/imagens/${movel.foto}'),
+              image:
+                  AssetImage('utilidades/assets/imagens/${widget.movel.foto}'),
               fit: BoxFit.cover)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -27,11 +36,16 @@ class Detalhes extends StatelessWidget {
             height: 205,
             margin: EdgeInsets.all(16),
             child: CardDetalhes(
-              movel: movel,
+              movel: widget.movel,
+              atualizaPagina: atualiza,
             ),
           ),
         ),
       ),
     );
+  }
+
+  void atualiza() {
+    setState(() {});
   }
 }
